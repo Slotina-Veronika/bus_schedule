@@ -1,0 +1,15 @@
+extends layout
+
+block content
+
+	#response
+		p Load shedule <br> 
+		#stationsList(onchange='routeLoad()')
+			- if (stations.length)
+				select(id='stationSelect',size=1)
+					- for(var i=0; i<stations.length;i+=2)
+						option(value=stations[i])
+							=stations[i+1]
+		#routeList.routeList
+			select(id='routeSelect', size=1)
+		button#btnClick(onclick='sheduleLoad()') Click Me!
